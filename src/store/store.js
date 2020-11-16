@@ -17,9 +17,6 @@ export default new Vuex.Store({
     pokemons: {},
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
     setAllPokemons(state, listPokemon) {
       state.pokemons = listPokemon;
     },
