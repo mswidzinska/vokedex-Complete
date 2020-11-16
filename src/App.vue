@@ -11,7 +11,7 @@
           <b-row>
             <b-col>
               <div class="h-175">
-                <p>SEARCH</p>
+                <SearchPokemon v-on:new-search-query="onNewSearchQuery" />
               </div>
             </b-col>
           </b-row>
@@ -41,9 +41,18 @@
 </template>
 
 <script>
+import SearchPokemon from "./components/SearchPokemon";
 
 export default {
   name: "App",
+  components: {
+    SearchPokemon
+  },
+  methods: {
+  onNewSearchQuery: function (query) {
+    alert(query);
+  }
+}
 };
 </script>
 
@@ -61,9 +70,9 @@ export default {
 .h-175 {
   height: 175px;
 }
-
+/* these stylings we can do by changeing bootstrap variables see: https://bootstrap-vue.org/docs/reference/theming#generating-custom-themes */
 .bgc-red {
-  background-color: tomato;
+  background-color: #D50A2C;
 }
 
 </style>
