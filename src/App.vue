@@ -1,28 +1,69 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%">
-    <HelloWorld msg="Hello Vue in CodeSandbox!"/>
+    <b-container fluid class="pokedex-container bgc-red">
+      <b-row no-gutters>
+        <b-col>
+          <div class="h-350">
+            <p>IMAGE</p>
+          </div>
+        </b-col>
+        <b-col>
+          <b-row>
+            <b-col>
+              <div class="h-175">
+                <p>SEARCH</p>
+              </div>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <div class="h-175">
+                <p>ADVANCED SEARCH</p>
+              </div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+      <b-row no-gutters>
+        <b-col>
+          <div class="h-350">
+            <p>DETAILS</p>
+          </div>
+        </b-col>
+        <b-col>
+          <div class="h-350">
+            <p>RESULTS</p>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
-  }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.pokedex-container {
+  max-width: 1000px;
+  max-height: 700px;
+  margin-top: 100px;
 }
+
+.h-350 {
+  height: 350px;
+}
+
+.h-175 {
+  height: 175px;
+}
+
+.bgc-red {
+  background-color: tomato;
+}
+
 </style>
