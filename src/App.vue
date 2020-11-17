@@ -32,7 +32,7 @@
         </b-col>
         <b-col>
           <div class="h-350">
-            <p>RESULTS</p>
+            <SearchResults />
           </div>
         </b-col>
       </b-row>
@@ -41,12 +41,14 @@
 </template>
 
 <script>
-import SearchPokemon from "./components/SearchPokemon";
+import SearchPokemon from './components/SearchPokemon';
+import SearchResults from './components/SearchResults';
 
 export default {
   name: "App",
   components: {
-    SearchPokemon
+    SearchPokemon,
+    SearchResults,
   },
   methods: {
   onNewSearchQuery: function (query) {
