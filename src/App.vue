@@ -11,7 +11,7 @@
           <b-row>
             <b-col>
               <div class="h-175">
-                <SearchPokemon v-on:new-search-query="onNewSearchQuery" />
+                <SearchPokemon v-on:new-search-query="filterPokemon($event)" />
               </div>
             </b-col>
           </b-row>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import SearchPokemon from './components/SearchPokemon';
 import SearchResults from './components/SearchResults';
 
@@ -50,10 +51,13 @@ export default {
     SearchPokemon,
     SearchResults,
   },
+  beforeMount: function(){
+    this.$store.dispatch('getAllPokemon')
+  },
   methods: {
-  onNewSearchQuery: function (query) {
-    alert(query);
-  }
+    ...mapActions([
+      'filterPokemon',
+    ]),
 }
 };
 </script>

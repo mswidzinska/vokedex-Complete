@@ -13,8 +13,9 @@ export default new Vuex.Store({
     initLoad: false, // one for the full vokedex
     loadDetails: false, // only the left part when getting the details
     selectdPokemon: {},
+    filteredPokemons: [],
     errorSate: {},
-    pokemons: {},
+    pokemons: [],
   },
   mutations: {
     setAllPokemons(state, listPokemon) {
@@ -32,10 +33,18 @@ export default new Vuex.Store({
     },
     setSelectedPokemon(state, pokemon) {
       state.selectdPokemon = pokemon
+    },
+    setFilterdPokemon(state, pokemons) {
+      state.filteredPokemons = pokemons
+    },
+  },
+  getters: {
+    getFilteredPokemon: state => {
+      return state.filteredPokemons;
     }
   },
   actions: {
-    async getAllPokemon (commit) {
+    async getAllPokemon ({commit}) {
       commit('setInitLoad', true);
       let allPokemon =  await getAllPokemon();
       if(allPokemon.results){
@@ -46,7 +55,7 @@ export default new Vuex.Store({
         commit('setInitLoad', false);
       }
     },
-    async getPokemonDetails (commit, url) {
+    async getPokemonDetails ({commit}, url) {
       commit('loadDetails', true);
       let pokemon =  await getPokemonDetails(url);
       if(pokemon.results){
@@ -56,6 +65,9 @@ export default new Vuex.Store({
         commit('setErrorState', new Error('Something went wrong with getting the pokemon details'));
         commit('loadDetails', false);
       }
+    },
+    filterPokemon({commit, state}, query) {
+      commit('setFilterdPokemon', state.pokemons.filter(pokemon => pokemon.name.includes(query.toLowerCase())))
     },
   },
 })
