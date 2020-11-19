@@ -41,6 +41,10 @@ export default new Vuex.Store({
   getters: {
     getFilteredPokemon: state => {
       return state.filteredPokemons;
+    },
+    getFirstThreeFilteredPokemon: state => {
+      console.log(state.filteredPokemons);
+      return state.filteredPokemons.slice(0, 4);
     }
   },
   actions: {
