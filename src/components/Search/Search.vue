@@ -1,18 +1,16 @@
 <template>
-  <b-row class="h-350">
-    <b-col>
-      <b-row>
-        <b-col>
-          <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
-            <SearchPokemon v-model="query"/>
-            <AdvancedSearch v-model="advanced" />
-            <b-button type="submit" variant="primary">Submit</b-button>
-            <b-button type="reset" variant="danger">Reset</b-button>
-          </b-form>
-        </b-col>
-      </b-row>
-    </b-col>
-  </b-row>
+  <b-col>
+    <b-row>
+      <b-col>
+        <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
+          <SearchPokemon v-model="query"/>
+          <AdvancedSearch v-model="advanced" />
+          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-button type="reset" variant="danger">Reset</b-button>
+        </b-form>
+      </b-col>
+    </b-row>
+  </b-col>
 </template>
 
 <script>

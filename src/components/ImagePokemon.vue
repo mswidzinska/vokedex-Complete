@@ -1,11 +1,12 @@
 <template>
-
+  <b-col>
     <div v-if="getSelectedPokemon.sprites">
       <img :src="getSelectedPokemon.sprites.other.dream_world.front_default" />
     </div>
     <div v-else>
       Please select a pokemon
     </div>
+  </b-col>
 </template>
 
 <script>

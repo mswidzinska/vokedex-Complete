@@ -1,25 +1,16 @@
 <template>
   <div id="app">
     <b-container fluid class="pokedex-container bgc-red">
-      <b-row no-gutters>
-        <b-col>
-          <div class="h-350">
-            <ImagePokemon></ImagePokemon>
-          </div>
-        </b-col>
+      <b-row>
+        <ImagePokemon />
         <Search />
       </b-row>
-      <b-row no-gutters>
+      <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
         <b-col>
-          <div class="h-350">
-            <p>DETAILS</p>
-          </div>
+          <!-- When this becomes a component move b-coll with it! -->
+          <p>DETAILS</p>
         </b-col>
-        <b-col>
-          <div class="h-350">
-            <SearchResults />
-          </div>
-        </b-col>
+        <SearchResults />
       </b-row>
     </b-container>
   </div>
@@ -57,11 +48,7 @@ export default {
 }
 
 .h-350 {
-  height: 350px;
-}
-
-.h-175 {
-  height: 175px;
+  min-height: 350px;
 }
 /* these stylings we can do by changeing bootstrap variables see: https://bootstrap-vue.org/docs/reference/theming#generating-custom-themes */
 .bgc-red {

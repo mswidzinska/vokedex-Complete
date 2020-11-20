@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3">
+  <b-col>
     <b-card
       v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name"
       no-body
@@ -8,7 +8,8 @@
     >
       <h3>{{ pokemon.name }}</h3>
     </b-card>
-  </div>
+
+  </b-col>
 </template>
 
 <script>
