@@ -52,7 +52,7 @@ export default {
     SearchResults,
   },
   beforeMount: function(){
-    this.$store.dispatch('getAllPokemon')
+    this.$store.dispatch('getAllPokemon'), 'https://pokeapi.co/api/v2/pokemon/1/'
   },
   methods: {
     ...mapActions([

@@ -15,6 +15,24 @@
           required
           placeholder="Something like: Charmender"
         ></b-form-input>
+        <b-form-checkbox
+          id="advanced"
+          v-model="advanced.useAdvanced"
+          name="advanced"
+          v-bind:value="true"
+          v-bind:unchecked-value="false"
+        >
+          use advanced
+        </b-form-checkbox>
+        <b-form-checkbox
+          id="checkSeasonOne"
+          v-model="advanced.seasons.s1"
+          name="checkSeasonOne"
+          v-bind:value="true"
+          v-bind:unchecked-value="false"
+        >
+          only S1
+        </b-form-checkbox>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
@@ -28,11 +46,17 @@ export default {
   data() {
     return {
       query: '',
+      advanced: {
+        useAdvanced: false,
+        seasons:{
+          s1: false,
+        },
+      },
     }
   },
   methods: {
     onSubmit() {
-      this.$emit('new-search-query', this.query)
+      this.$emit('new-search-query', {query: this.query, advanced: this.advanced})
     },
     onReset() {
       this.query = '';
