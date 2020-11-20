@@ -1,24 +1,18 @@
 <template>
-  
-          <b-col>
-          <b-row>
-            <b-col>
-              <div class="h-175">
-                <SearchPokemon v-on:new-search-query="filterPokemon($event)" />
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <div class="h-175">
-                <AdvancedSearch />
-              </div>
-            </b-col>
-          </b-row>
+  <b-row class="h-350">
+    <b-col>
+      <b-row>
+        <b-col>
+          <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
+            <SearchPokemon v-model="query"/>
+            <AdvancedSearch v-model="advanced" />
+            <b-button type="submit" variant="primary">Submit</b-button>
+            <b-button type="reset" variant="danger">Reset</b-button>
+          </b-form>
         </b-col>
-  
-  
-  
+      </b-row>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -46,6 +40,12 @@ export default {
     ...mapActions([
       'filterPokemon',
     ]),
+    onSubmit() {
+      this.filterPokemon({query: this.query, advanced: this.advanced})
+    },
+    onReset() {
+      this.query = '';
+    },
   }
 };
 </script>

@@ -1,52 +1,43 @@
 <template>
-  <div>
-
-    <div class="accordion" role="tablist">
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle.accordion-1 variant="info">Accordion 1</b-button>
-        </b-card-header>
-        <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
-          <b-card-body>
-            <b-form-checkbox
-              id="advanced"
-              v-model="advanced.useAdvanced"
-              name="advanced"
-              v-bind:value="true"
-              v-bind:unchecked-value="false"
-            >
-              use advanced
-            </b-form-checkbox>
-            <b-form-checkbox
-              id="checkSeasonOne"
-              v-model="advanced.seasons.s1"
-              name="checkSeasonOne"
-              v-bind:value="true"
-              v-bind:unchecked-value="false"
-            >
-              only S1
-            </b-form-checkbox>
-          </b-card-body>
-        </b-collapse>
-      </b-card>
-
-    </div>
-
-
-
-
-
-
-
+  <div class="accordion" role="tablist">
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.advancedAccordion variant="info">Advanced</b-button>
+      </b-card-header>
+      <b-collapse id="advancedAccordion" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-form-checkbox
+            id="advanced"
+            v-model="advanced.useAdvanced"
+            name="advanced"
+            v-bind:value="true"
+            v-bind:unchecked-value="false"
+            v-on:input="onInput"
+          >
+            use advanced
+          </b-form-checkbox>
+          <b-form-checkbox
+            id="checkSeasonOne"
+            v-model="advanced.seasons.s1"
+            name="checkSeasonOne"
+            v-bind:value="true"
+            v-bind:unchecked-value="false"
+            v-on:input="onInput"
+          >
+            only S1
+          </b-form-checkbox>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
   </div>
 </template>
 
 <script>
 export default {
   name: 'AdvancedSearch',
+  props: ['value'],
   data() {
     return {
-      query: '',
       advanced: {
         useAdvanced: false,
         seasons:{
@@ -56,11 +47,8 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      this.$emit('new-search-query', {query: this.query, advanced: this.advanced})
-    },
-    onReset() {
-      this.query = '';
+    onInput() {
+      this.$emit('input', this.advanced)
     },
   }
 };
