@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <b-card v-for="pokemon in getFirstThreeFilteredPokemon" :key="pokemon.name" no-body class="d-flex flex-row p-3 mb-1 pokemon-result">
+    <b-card v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name" no-body class="d-flex flex-row p-3 mb-1 pokemon-result">
       <div class="search-result-image mr-3"></div>
       <h3 class="mr-3">{{ pokemon.name }}</h3>
       <h3>{{ pokemon.name }}</h3>
