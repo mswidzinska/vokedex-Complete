@@ -11,7 +11,7 @@
           <b-row>
             <b-col>
               <div class="h-175">
-                <SearchPokemon v-on:new-search-query="filterPokemon($event)" />
+                <Search />
               </div>
             </b-col>
           </b-row>
@@ -42,13 +42,13 @@
 
 <script>
 import { mapActions } from 'vuex'
-import SearchPokemon from './components/SearchPokemon';
 import SearchResults from './components/SearchResults';
+import Search from './components/Search/Search'
 
 export default {
   name: "App",
   components: {
-    SearchPokemon,
+    Search,
     SearchResults,
   },
   beforeMount: function(){
