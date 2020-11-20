@@ -32,7 +32,7 @@ export default new Vuex.Store({
       state.loadDetails = loadBoolean;
     },
     setSelectedPokemon(state, pokemon) {
-      state.selectdPokemon = pokemon
+      state.selectedPokemon = pokemon
     },
     setFilteredPokemon(state, pokemons) {
       state.filteredPokemons = pokemons
@@ -64,8 +64,8 @@ export default new Vuex.Store({
     async getPokemonDetails ({commit}, url) {
       commit('loadDetails', true);
       let pokemon =  await getPokemonDetails(url);
-      if(pokemon.results){
-        commit('setSelectedPokemon', pokemon.results);
+      if(pokemon){
+        commit('setSelectedPokemon', pokemon);
         commit('loadDetails', false);
       } else {
         commit('setErrorState', new Error('Something went wrong with getting the pokemon details'));

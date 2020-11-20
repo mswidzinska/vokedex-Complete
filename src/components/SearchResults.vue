@@ -1,39 +1,33 @@
 <template>
   <div class="p-3">
-    <b-card v-for="pokemon in getFirstThreeFilteredPokemon" :key="pokemon.name" no-body class="d-flex flex-row p-3 mb-1 pokemon-result">
+    <b-card v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name" no-body class="d-flex flex-row p-3 mb-1 pokemon-result">
       <div class="search-result-image mr-3"></div>
       <h3 class="mr-3">{{ pokemon.name }}</h3>
       <h3>{{ pokemon.name }}</h3>
     </b-card>
+    <button @click="getPokemonDetails('https://pokeapi.co/api/v2/pokemon/1/')">BUTTON</button>
+    <p>{{ getSelectedPokemon }}</p>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'SearchResults',
-  data() {
-    return {
-      searchResults: [
-          {
-              number: '#001',
-              name: 'Bulbasaur'
-          },
-          {
-              number: '#004',
-              name: 'Charmander'
-          },
-          {
-              number: '#007',
-              name: 'Squirtle'
-          }
-      ]
-    }
-  },
   computed: {
     ...mapGetters([
       'getFirstFourFilteredPokemon',
-    ])
+      'getSelectedPokemon',
+    ]),
+  },
+  methods: {
+    ...mapActions([
+      'getPokemonDetails',
+    ]),
+    handleClick() {
+      this.$store.dispatch('getAllPokemon', 'https://pokeapi.co/api/v2/pokemon/1/');
+      console.log(this.getSelectedPokemon);
+    },
   }
   
 };
