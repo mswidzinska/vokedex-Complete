@@ -1,5 +1,5 @@
 <template>
-    <div>{{ getSelectedPokemon }}</div>
+    <div>{{ getSelectedPokemon.sprites.other.dream_world.front_default }}</div>
 </template>
 
 <script>
