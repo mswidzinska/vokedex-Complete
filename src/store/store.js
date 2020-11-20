@@ -74,9 +74,10 @@ export default new Vuex.Store({
     },
     filterPokemon({commit, state}, searchData) {
       console.log(searchData)
-      if(searchData.useAdvanced) {
+      if(searchData.advanced.useAdvanced) {
+        console.log(searchData.useAdvanced)
         commit('setFilteredPokemon', 
-          !searchData.seasons.s1 ? state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())):state.pokemons.slice(0, 152).filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
+          !searchData.advanced.seasons.s1 ? state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())):state.pokemons.slice(0, 152).filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
       } else {
         commit('setFilteredPokemon', state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
       }
