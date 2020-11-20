@@ -4,7 +4,7 @@
       <b-row no-gutters>
         <b-col>
           <div class="h-350">
-            <p>IMAGE</p>
+            <ImagePokemon></ImagePokemon>
           </div>
         </b-col>
         <b-col>
@@ -42,17 +42,19 @@
 
 <script>
 import { mapActions } from 'vuex'
+import ImagePokemon from './components/ImagePokemon';
 import SearchPokemon from './components/SearchPokemon';
 import SearchResults from './components/SearchResults';
 
 export default {
   name: "App",
   components: {
+    ImagePokemon,
     SearchPokemon,
     SearchResults,
   },
   beforeMount: function(){
-    this.$store.dispatch('getAllPokemon'), 'https://pokeapi.co/api/v2/pokemon/1/'
+    this.$store.dispatch('getAllPokemon'), URL
   },
   methods: {
     ...mapActions([
