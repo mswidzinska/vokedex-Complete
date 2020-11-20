@@ -32,7 +32,7 @@ export default new Vuex.Store({
       state.loadDetails = loadBoolean;
     },
     setSelectedPokemon(state, pokemon) {
-      state.selectdPokemon = pokemon
+      state.selectedPokemon = pokemon
     },
     setFilteredPokemon(state, pokemons) {
       state.filteredPokemons = pokemons
@@ -64,8 +64,8 @@ export default new Vuex.Store({
     async getPokemonDetails ({commit}, url) {
       commit('loadDetails', true);
       let pokemon =  await getPokemonDetails(url);
-      if(pokemon.results){
-        commit('setSelectedPokemon', pokemon.results);
+      if(pokemon){
+        commit('setSelectedPokemon', pokemon);
         commit('loadDetails', false);
       } else {
         commit('setErrorState', new Error('Something went wrong with getting the pokemon details'));
@@ -74,9 +74,10 @@ export default new Vuex.Store({
     },
     filterPokemon({commit, state}, searchData) {
       console.log(searchData)
-      if(searchData.useAdvanced) {
+      if(searchData.advanced.useAdvanced) {
+        console.log(searchData.useAdvanced)
         commit('setFilteredPokemon', 
-          !searchData.seasons.s1 ? state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())):state.pokemons.slice(0, 152).filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
+          !searchData.advanced.seasons.s1 ? state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())):state.pokemons.slice(0, 152).filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
       } else {
         commit('setFilteredPokemon', state.pokemons.filter(pokemon => pokemon.name.includes(searchData.query.toLowerCase())))
       }
