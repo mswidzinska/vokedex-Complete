@@ -1,5 +1,5 @@
 <template>
-    <div>{{ selectedPokemon }}</div>
+    <div>{{ getSelectedPokemon }}</div>
 </template>
 
 <script>
@@ -10,9 +10,9 @@ export default {
     beforeMount() {
         this.$store.dispatch('getPokemonDetails', 'https://pokeapi.co/api/v2/pokemon/39/');
     },
-    methods: {
+    computed: {
         ...mapGetters([
-            'setSelectedPokemon',
+            'getSelectedPokemon',
         ])
     }
 }
