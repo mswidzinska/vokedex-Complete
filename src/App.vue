@@ -1,19 +1,17 @@
 <template>
-  <div id="app">
-    <b-container fluid class="pokedex-container bgc-red">
-      <b-row>
-        <ImagePokemon />
-        <Search />
-      </b-row>
-      <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
-        <b-col>
-          <!-- When this becomes a component move b-coll with it! -->
-          <p>DETAILS</p>
-        </b-col>
-        <SearchResults />
-      </b-row>
-    </b-container>
-  </div>
+  <b-container class="p-3 bg-secondary">
+    <b-row>
+      <ImagePokemon />
+      <Search />
+    </b-row>
+    <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
+      <b-col>
+        <!-- When this becomes a component move b-coll with it! -->
+        <p>DETAILS</p>
+      </b-col>
+      <SearchResults />
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -40,19 +38,15 @@ export default {
 };
 </script>
 
-<style>
-.pokedex-container {
-  max-width: 1000px;
-  max-height: 700px;
-  margin-top: 100px;
-}
+<style lang="scss">
+  $secondary: #D50A2C;
 
-.h-350 {
-  min-height: 350px;
-}
-/* these stylings we can do by changeing bootstrap variables see: https://bootstrap-vue.org/docs/reference/theming#generating-custom-themes */
-.bgc-red {
-  background-color: #D50A2C;
-}
+  // Bootstrap and its default variables
+  @import '../node_modules/bootstrap/scss/bootstrap';
+  // BootstrapVue and its default variables
+  @import '../node_modules/bootstrap-vue/src/index.scss';
 
+  .h-350 {
+    min-height: 350px;
+  }
 </style>
