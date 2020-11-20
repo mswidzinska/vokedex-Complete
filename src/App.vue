@@ -7,22 +7,7 @@
             <ImagePokemon></ImagePokemon>
           </div>
         </b-col>
-        <b-col>
-          <b-row>
-            <b-col>
-              <div class="h-175">
-                <Search />
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <div class="h-175">
-                <p>ADVANCED SEARCH</p>
-              </div>
-            </b-col>
-          </b-row>
-        </b-col>
+        <Search />
       </b-row>
       <b-row no-gutters>
         <b-col>
@@ -51,7 +36,7 @@ export default {
   components: {
     ImagePokemon,
     Search,
-    SearchResults,
+    SearchResults
   },
   beforeMount: function(){
     this.$store.dispatch('getAllPokemon'), URL

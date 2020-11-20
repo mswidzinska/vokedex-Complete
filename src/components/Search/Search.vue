@@ -1,8 +1,24 @@
 <template>
-  <div>
-    <SearchPokemon v-on:new-search-query="filterPokemon($event)" />
-    <AdvancedSearch />
-  </div>
+  
+          <b-col>
+          <b-row>
+            <b-col>
+              <div class="h-175">
+                <SearchPokemon v-on:new-search-query="filterPokemon($event)" />
+              </div>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <div class="h-175">
+                <AdvancedSearch />
+              </div>
+            </b-col>
+          </b-row>
+        </b-col>
+  
+  
+  
 </template>
 
 <script>
