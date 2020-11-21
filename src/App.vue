@@ -5,7 +5,7 @@
       <Search />
     </b-row>
     <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
-      <b-col>
+      <b-col class="border-left border-bottom border-dark p-3">
         <!-- When this becomes a component move b-coll with it! -->
         <p>DETAILS</p>
       </b-col>

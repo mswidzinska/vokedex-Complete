@@ -1,7 +1,8 @@
 <template>
-  <b-col>
+  <b-col class="border border-dark p-3">
     <div class="d-flex justify-content-center" v-if="getSelectedPokemon.sprites">
       <b-card 
+        no-body
         :img-src="getSelectedPokemon.sprites.other.dream_world.front_default"
         img-alt="Image"
         img-top
@@ -12,7 +13,7 @@
       </b-card>
     </div>
     <div class="d-flex justify-content-center" v-else>
-      <b-card class="bg-primary text-center p-0">
+      <b-card class="bg-primary text-center p-0" no-body>
         <p class=" p-5">
             please select your pokemon
         </p>

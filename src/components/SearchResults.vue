@@ -1,5 +1,5 @@
 <template>
-  <b-col>
+  <b-col class="border border-dark">
     <b-card
       v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name"
       no-body

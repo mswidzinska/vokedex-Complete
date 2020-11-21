@@ -1,5 +1,5 @@
 <template>
-  <b-col>
+  <b-col class="border-top border-right border-dark p-3">
     <b-row>
       <b-col>
         <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">

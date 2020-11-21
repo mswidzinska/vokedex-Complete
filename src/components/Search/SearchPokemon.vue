@@ -4,7 +4,6 @@
       id="searchInputGroup"
       label="Search Pokemon:"
       label-for="searchInput"
-      description="Just type the pokemon name in here"
     >
     <b-form-input
       id="searchInput"
