@@ -2,20 +2,10 @@
   <div class="accordion" role="tablist">
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.advancedAccordion variant="info">Advanced</b-button>
+        <b-button block @click="advanced.useAdvanced = !advanced.useAdvanced" variant="info">Advanced</b-button>
       </b-card-header>
-      <b-collapse id="advancedAccordion" accordion="my-accordion" role="tabpanel">
+      <b-collapse id="advancedAccordion" v-model="advanced.useAdvanced" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-          <b-form-checkbox
-            id="advanced"
-            v-model="advanced.useAdvanced"
-            name="advanced"
-            v-bind:value="true"
-            v-bind:unchecked-value="false"
-            v-on:input="onInput"
-          >
-            use advanced
-          </b-form-checkbox>
           <b-form-checkbox
             id="checkSeasonOne"
             v-model="advanced.seasons.s1"
