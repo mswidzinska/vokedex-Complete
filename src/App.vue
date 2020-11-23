@@ -5,10 +5,7 @@
       <Search />
     </b-row>
     <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
-      <b-col class="border-left border-bottom border-dark p-3">
-        <!-- When this becomes a component move b-coll with it! -->
-        <p>DETAILS</p>
-      </b-col>
+      <PokemonDetails />
       <SearchResults />
     </b-row>
   </b-container>
@@ -18,14 +15,21 @@
 import { mapActions } from 'vuex'
 import ImagePokemon from './components/ImagePokemon';
 import SearchResults from './components/SearchResults';
-import Search from './components/Search/Search'
+import Search from './components/Search/Search';
+import PokemonDetails from './components/PokemonDetails';
 
 export default {
   name: "App",
+  data() {
+    return {
+      darkTheme: false,
+    };
+  },
   components: {
     ImagePokemon,
     Search,
-    SearchResults
+    SearchResults,
+    PokemonDetails,
   },
   beforeMount: function(){
     this.$store.dispatch('getAllPokemon'), URL
