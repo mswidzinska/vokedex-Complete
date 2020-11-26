@@ -25,13 +25,18 @@ export default {
   },
   data() {
     return {
-      query: '',
+      query: this.$route.params.query,
       advanced: {
         useAdvanced: false,
         seasons:{
           s1: false,
         },
       },
+    }
+  },
+  beforeMount: function(){
+    if(this.$route.params.query){
+      this.filterPokemon({query: this.query, advanced: this.advanced})
     }
   },
   methods: {
