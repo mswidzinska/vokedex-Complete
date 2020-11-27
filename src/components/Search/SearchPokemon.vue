@@ -10,7 +10,7 @@
       :value="value"
       v-on:input="$emit('input', $event)"
       type="text"
-      placeholder="Something like: Charmender"
+      placeholder="Something like: Charmander"
     ></b-form-input>
   </b-form-group>
   </div>
