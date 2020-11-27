@@ -1,12 +1,20 @@
 <template>
-  <b-col class="border-top border-right border-dark p-3">
+  <b-col class="p-4">
     <b-row>
       <b-col>
         <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
           <SearchPokemon v-model="query"/>
           <AdvancedSearch v-model="advanced" />
-          <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-          <b-button type="reset" variant="danger">Reset</b-button>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="tiny-balls bg-danger rounded-circle m-2" />
+              <div class="tiny-balls bg-success rounded-circle m-2" />
+            </div>
+            <div>
+              <b-button type="submit" variant="success" class="mr-2">Submit</b-button>
+              <b-button type="reset" variant="danger">Reset</b-button>
+            </div>
+          </div>
         </b-form>
       </b-col>
     </b-row>

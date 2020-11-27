@@ -1,7 +1,7 @@
 <template>
-  <b-container class="p-3 bg-secondary">
+  <b-container class="p-3 bg-secondary home-view rounded">
     <b-row>
-      <div id="blue-ball" class="bg-primary border-10 rounded-circle m-4" />
+      <div id="blue-ball" class="bg-primary rounded-circle m-4" />
       <div class="tiny-balls bg-danger rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-warning rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" />
@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #blue-ball {
   height: 70px;
   width: 70px;
@@ -63,4 +63,7 @@ export default {
   border: 1px solid black;
 }
 
+.home-view {
+  border: 3px solid black;
+}
 </style>

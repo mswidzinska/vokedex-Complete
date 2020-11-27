@@ -2,7 +2,7 @@
   <div class="accordion" role="tablist">
     <b-card no-body class="mb-2">
       <b-card-header header-tag="header" class="p-0" role="tab">
-        <b-button block @click="advanced.useAdvanced = !advanced.useAdvanced" variant="info">Advanced</b-button>
+        <b-button block @click="advanced.useAdvanced = !advanced.useAdvanced" variant="primary">Advanced</b-button>
       </b-card-header>
       <b-collapse id="advancedAccordion" v-model="advanced.useAdvanced" accordion="my-accordion" role="tabpanel">
         <b-card-body>

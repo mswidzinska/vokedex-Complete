@@ -1,9 +1,11 @@
 <template>
-  <b-col class="border-left border-bottom border-dark p-3">
-      <b-card v-if="getSelectedPokemon.name" class="bg-dark text-success">
+  <b-col class="p-4">
+      <b-card v-if="getSelectedPokemon.name" class="bg-success">
         <!-- Work in Progress -->
-        <p class="m-0">Name: {{getSelectedPokemon.name}}</p>
-        <p>Number: {{getSelectedPokemon.id}}</p>
+        <div class="d-flex justify-content-between">
+          <h3>{{getSelectedPokemon.name}}</h3>
+          <h3>No. {{getSelectedPokemon.id}}</h3>
+        </div>
         <p>Height: {{getSelectedPokemon.height}}</p>
         <p>Weight: {{getSelectedPokemon.weight}}</p>
         <p>Type:</p>

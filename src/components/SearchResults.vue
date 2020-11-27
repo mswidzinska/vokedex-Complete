@@ -1,9 +1,9 @@
 <template>
-  <b-col class="border border-dark">
+  <b-col class="p-4">
     <b-card
       v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name"
       no-body
-      class="d-flex flex-row justify-content-center p-3 mb-1 pokemon-result"
+      class="d-flex flex-row justify-content-center p-4 mb-1 bg-warning pokemon-result"
       @click="getPokemonDetails(pokemon.url)"
     >
       <h3>{{ pokemon.name }}</h3>
