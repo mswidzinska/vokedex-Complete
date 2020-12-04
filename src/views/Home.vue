@@ -1,20 +1,20 @@
 <template>
   <b-container
-    class="p-3 home-view rounded"
+    class="p-5 home-view rounded"
     :key="darkTheme"
     :style="{ backgroundColor: theme }"
     >
-    <b-row>
+    <b-row class="mb-3">
       <div id="blue-ball" class="bg-primary rounded-circle m-4" @click="switchTheme()" />
       <div class="tiny-balls bg-danger rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-warning rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" />
     </b-row>
-    <b-row>
+    <b-row class="h-50">
       <ImagePokemon />
       <Search />
     </b-row>
-    <b-row class="h-350"> <!-- Still ugly hope we can solve it soon -->
+    <b-row class="h-50">
       <PokemonDetails />
       <SearchResults />
     </b-row>
@@ -31,7 +31,7 @@ export default {
   name: "Home",
   data() {
     return {
-      darkTheme: true,
+      darkTheme: false,
     };
   },
   components: {
@@ -84,5 +84,6 @@ export default {
 
 .home-view {
   border: 3px solid black;
+  height: 800px;
 }
 </style>

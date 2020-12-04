@@ -1,11 +1,11 @@
 <template>
-  <b-col class="p-4">
+  <b-col>
     <b-row>
       <b-col>
         <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
           <SearchPokemon v-model="query"/>
           <AdvancedSearch v-model="advanced" />
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between pt-2">
             <div class="d-flex">
               <div class="tiny-balls bg-danger rounded-circle m-2" />
               <div class="tiny-balls bg-success rounded-circle m-2" />

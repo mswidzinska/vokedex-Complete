@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-4">
+  <b-col>
     <div class="d-flex justify-content-center" v-if="getSelectedPokemon.sprites">
       <b-card 
         no-body

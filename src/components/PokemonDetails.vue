@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-4">
+  <b-col>
       <b-card v-if="getSelectedPokemon.name" class="bg-success">
         <!-- Work in Progress -->
         <div class="d-flex justify-content-between">

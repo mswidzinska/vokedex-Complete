@@ -1,5 +1,5 @@
 <template>
-  <b-col class="p-4">
+  <b-col>
     <b-card
       v-for="pokemon in getFirstFourFilteredPokemon" :key="pokemon.name"
       no-body
@@ -8,7 +8,6 @@
     >
       <h3>{{ pokemon.name }}</h3>
     </b-card>
-
   </b-col>
 </template>
 
@@ -32,7 +31,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .pokemon-result:hover {
-    background-color: lightgray;
+    background-color: lightgray !important;
     cursor: pointer;
   }
 </style>
