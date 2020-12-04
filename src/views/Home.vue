@@ -1,7 +1,11 @@
 <template>
-  <b-container class="p-3 bg-secondary home-view rounded">
+  <b-container
+    class="p-3 home-view rounded"
+    :key="darkTheme"
+    :style="{ backgroundColor: theme }"
+    >
     <b-row>
-      <div id="blue-ball" class="bg-primary rounded-circle m-4" />
+      <div id="blue-ball" class="bg-primary rounded-circle m-4" @click="switchTheme()" />
       <div class="tiny-balls bg-danger rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-warning rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" />
@@ -27,7 +31,7 @@ export default {
   name: "Home",
   data() {
     return {
-      darkTheme: false,
+      darkTheme: true,
     };
   },
   components: {
@@ -35,6 +39,14 @@ export default {
     Search,
     SearchResults,
     PokemonDetails,
+  },
+  computed: {
+    theme() {
+      if (this.darkTheme) {
+        return '#343a40';
+      }
+      return '#D50A2C';
+    }
   },
   beforeMount: function(){
     this.$store.dispatch('getAllPokemon')
@@ -46,6 +58,9 @@ export default {
     ...mapActions([
       'filterPokemon',
     ]),
+    switchTheme() {
+      this.darkTheme = !this.darkTheme;
+    }
 }
 };
 </script>
@@ -55,6 +70,10 @@ export default {
   height: 70px;
   width: 70px;
   border: 10px solid lightgrey;
+}
+
+#blue-ball:hover {
+  cursor: pointer;
 }
 
 .tiny-balls {
