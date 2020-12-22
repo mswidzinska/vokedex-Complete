@@ -23,10 +23,9 @@
           {{ item }}
         </li>
       </ul>
-         <ul>
+      <ul>
         <li v-for="dog in dogs" :key="dog.index">
-          {{ dog.name }}
-           {{ dog.type }}
+          <p>Dog "{{ dog.name }}" is a  {{ dog.type }}</p>
         </li>
       </ul>
     </div>
@@ -42,14 +41,16 @@ export default {
       red: true,
       green: false,
       yellow: false,
-      items:["item1", "item2", "item3", "item4", "item5", "item6"],
-    dogs: [
-      {name: "How", type: "labrador"},
-      {name: "Mimi", type: "chow-chow"},
-      {name: "Luca", type: "german shephard"},
-      {name: "Luca", type: "swiss shephard"},
-    ],
-    }}};
+      items: ["item1", "item2", "item3", "item4", "item5", "item6"],
+      dogs: [
+        { name: "How", type: "labrador" },
+        { name: "Mimi", type: "chow-chow" },
+        { name: "Luca", type: "german shephard" },
+        { name: "Luca", type: "swiss shephard" },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
