@@ -36,7 +36,7 @@ export default {
       red: true,
       green: false,
       yellow: false,
-      items:["item1", "item2", "item3", "item4"]
+      items:["item1", "item2", "item3", "item4", "item5", "item6"]
     };
   },
 };
