@@ -10,12 +10,12 @@
       <b-row> </b-row>
       <b-row> </b-row>
     </b-container>
-    <div>
+    <div class="space">
       <p>Hello {{ name }}</p>
-      <h1 v-if="red">Mike have a red ball</h1>
-      <h1 v-else-if="green">Monika have a green ball</h1>
-      <h1 v-else-if="yellow">Caren have a yellow ball</h1>
-      <h1 v-else>Phil have no ball</h1>
+      <h3 v-if="red" class="red">Mike have a red ball</h3>
+      <h3 v-else-if="green" class="green">Monika have a green ball</h3>
+      <h3 v-else-if="yellow" class="yellow">Caren have a yellow ball</h3>
+      <h3 v-else>Phil have no ball</h3>
     </div>
   </div>
 </template>
@@ -25,9 +25,9 @@ export default {
   name: "Home",
   data() {
     return {
-      name: "Monika",
-      red: false,
-      green: true,
+      name: "Lili",
+      red: true,
+      green: false,
       yellow: false,
     };
   },
@@ -49,5 +49,17 @@ export default {
 
 .home-view {
   border: 3px solid black;
+}
+.space {
+  margin-left:50px;
+}
+.red {
+  color:red;
+}
+.green {
+  color:green;
+}
+.yellow {
+  color:yellow;
 }
 </style>
