@@ -17,6 +17,13 @@
       <h3 v-else-if="yellow" class="yellow">Caren have a yellow ball</h3>
       <h3 v-else>Phil have no ball</h3>
     </div>
+    <div>
+      <ul>
+        <li v-for="item in items" :key="item.index">
+          {{item}}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -29,6 +36,7 @@ export default {
       red: true,
       green: false,
       yellow: false,
+      items:["item1", "item2", "item3", "item4"]
     };
   },
 };
