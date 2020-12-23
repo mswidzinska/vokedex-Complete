@@ -16,6 +16,9 @@
       <h3 v-else-if="green" class="green">Monika have a green ball</h3>
       <h3 v-else-if="yellow" class="yellow">Caren have a yellow ball</h3>
       <h3 v-else>Phil have no ball</h3>
+      <button v-on:click="aClickHandler('Hello!')">button 1</button>
+      <button @click="aClickHandler('Hello!')">button 2</button>
+      <button type="submit" @click="aClickHandler.prevent">Button Submit</button>
     </div>
     <div>
       <ul>
@@ -48,8 +51,13 @@ export default {
         { name: "Luca", type: "german shephard" },
         { name: "Luca", type: "swiss shephard" },
       ],
-    };
-  },
+    }; },
+    methods: {
+      aClickHandler(data){
+        alert('I have been clicked '+data)
+      },
+    }
+ 
 };
 </script>
 
