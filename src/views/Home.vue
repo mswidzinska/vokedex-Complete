@@ -27,13 +27,13 @@
         </button>
       </form>
     </div>
-    <div :class="{darkTheme: isDark}">
+    <div>
       <ul>
         <li v-for="item in items" :key="item.index">
           {{ item }}
         </li>
       </ul>
-      <ul>
+      <ul :class="{darkTheme: isDark}">
         <li v-for="dog in dogs" :key="dog.index">
           <!-- <p :style="{color: dog.color}">Dog "{{ dog.name }}" is a {{ dog.type }} and has a color: {{dog.color}}</p> -->
           <p :class="dog.color">Dog "{{ dog.name }}" is a {{ dog.type }} and has a color: {{dog.color}}</p>
