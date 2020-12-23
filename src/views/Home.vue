@@ -35,7 +35,7 @@
       </ul>
       <ul>
         <li v-for="dog in dogs" :key="dog.index">
-          <p>Dog "{{ dog.name }}" is a {{ dog.type }}</p>
+          <p :style="{color: dog.color}">Dog "{{ dog.name }}" is a {{ dog.type }} and has a color: {{dog.color}}</p>
         </li>
       </ul>
     </div>
@@ -63,10 +63,10 @@ export default {
       items: ["item1", "item2", "item3", "item4", "item5", "item6"],
       checked: true,
       dogs: [
-        { name: "How", type: "labrador" },
-        { name: "Mimi", type: "chow-chow" },
-        { name: "Luca", type: "german shephard" },
-        { name: "Luca", type: "swiss shephard" },
+        { name: "How", type: "labrador", color: "brown" },
+        { name: "Mimi", type: "chow-chow", color: "black" },
+        { name: "Luca", type: "german shephard" , color: '#BE5504' },
+        { name: "Luca", type: "swiss shephard", color: "gray" },
       ],
     };
   },
