@@ -19,6 +19,8 @@
       <button v-on:click="aClickHandler('Hello!')">button 1</button>
       <button @click="aClickHandler('Hello!')">button 2</button>
       <form>
+         <input v-model="name">
+         <input type="checkbox" v-model="checked">
         <button type="submit" @click.prevent="aClickHandler('Hi')"> <!-- prevent reloading the page -->
           Button Submit
         </button>
@@ -49,6 +51,7 @@ export default {
       green: false,
       yellow: false,
       items: ["item1", "item2", "item3", "item4", "item5", "item6"],
+      checked: true,
       dogs: [
         { name: "How", type: "labrador" },
         { name: "Mimi", type: "chow-chow" },
@@ -58,8 +61,8 @@ export default {
     };
   },
   methods: {
-    aClickHandler(data) {
-      alert("I have been clicked " + data)
+    aClickHandler() {
+      alert("I have been clicked " + this.name)
     },
   },
 };
