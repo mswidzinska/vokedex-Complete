@@ -27,7 +27,7 @@
         </button>
       </form>
     </div>
-    <div>
+    <div :class="{darkTheme: isDark}">
       <ul>
         <li v-for="item in items" :key="item.index">
           {{ item }}
@@ -40,6 +40,7 @@
 
         </li>
       </ul>
+      <button @click="isDark =!isDark"> ENTER DARKNESS</button>
     </div>
     <form @submit="formSubmit">
       <input v-model="searchQuery" />
@@ -57,6 +58,7 @@ export default {
   name: "Home",
   data() {
     return {
+      isDark: false,
       searchQuery: "",
       name: "Lili",
       red: true,
@@ -116,5 +118,8 @@ export default {
 }
 .yellow {
   color: yellow;
+}
+.darkTheme {
+  background-color: black;
 }
 </style>
