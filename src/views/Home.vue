@@ -18,7 +18,11 @@
       <h3 v-else>Phil have no ball</h3>
       <button v-on:click="aClickHandler('Hello!')">button 1</button>
       <button @click="aClickHandler('Hello!')">button 2</button>
-      <button type="submit" @click="aClickHandler.prevent">Button Submit</button>
+      <form>
+        <button type="submit" @click.prevent="aClickHandler('Hi')"> <!-- prevent reloading the page -->
+          Button Submit
+        </button>
+      </form>
     </div>
     <div>
       <ul>
@@ -28,7 +32,7 @@
       </ul>
       <ul>
         <li v-for="dog in dogs" :key="dog.index">
-          <p>Dog "{{ dog.name }}" is a  {{ dog.type }}</p>
+          <p>Dog "{{ dog.name }}" is a {{ dog.type }}</p>
         </li>
       </ul>
     </div>
@@ -51,13 +55,13 @@ export default {
         { name: "Luca", type: "german shephard" },
         { name: "Luca", type: "swiss shephard" },
       ],
-    }; },
-    methods: {
-      aClickHandler(data){
-        alert('I have been clicked '+data)
-      },
-    }
- 
+    };
+  },
+  methods: {
+    aClickHandler(data) {
+      alert("I have been clicked " + data)
+    },
+  },
 };
 </script>
 
