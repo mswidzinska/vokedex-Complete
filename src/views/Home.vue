@@ -19,9 +19,10 @@
       <button v-on:click="aClickHandler('Hello!')">button 1</button>
       <button @click="aClickHandler('Hello!')">button 2</button>
       <form>
-         <input v-model="name">
-         <input type="checkbox" v-model="checked">
-        <button type="submit" @click.prevent="aClickHandler('Hi')"> <!-- prevent reloading the page -->
+        <input v-model="name" />
+        <input type="checkbox" v-model="checked" />
+        <button type="submit" @click.prevent="aClickHandler('Hi')">
+          <!-- prevent reloading the page -->
           Button Submit
         </button>
       </form>
@@ -38,6 +39,14 @@
         </li>
       </ul>
     </div>
+    <form @submit="formSubmit">
+      <input v-model="searchQuery" />
+      <button type="submit" @click.prevent="aClickHandler('Hi')">
+        <!-- prevent reloading the page -->
+        Search
+      </button>
+      <button type="submit" @click.prevent="resetForm">reset</button>
+    </form>
   </div>
 </template>
 
@@ -46,6 +55,7 @@ export default {
   name: "Home",
   data() {
     return {
+      searchQuery: "",
       name: "Lili",
       red: true,
       green: false,
@@ -61,8 +71,14 @@ export default {
     };
   },
   methods: {
+    resetForm() {
+      this.searchQuery = "";
+    },
     aClickHandler() {
-      alert("I have been clicked " + this.name)
+      alert("I have been clicked " + this.searchQuery);
+    },
+    formSubmit() {
+      alert(`Searched: ${this.searchQuery}`);
     },
   },
 };
