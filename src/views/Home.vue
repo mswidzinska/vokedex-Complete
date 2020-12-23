@@ -51,6 +51,9 @@
       <button type="submit" @click.prevent="resetForm">reset</button>
     </form>
      <h2>{{ title }}</h2>
+       <h2 v-for="pokemon in fieryPokemons" :key="pokemon.index">
+      {{ pokemon }}
+    </h2>
   </div>
 </template>
 
@@ -68,6 +71,7 @@ export default {
       yellow: false,
       items: ["item1", "item2", "item3", "item4", "item5", "item6"],
       checked: true,
+      pokemons: ["charmander", "squirtle", "bulbasaur"],
       dogs: [
         { name: "How", type: "labrador", color: "brown" },
         { name: "Mimi", type: "chow-chow", color: "black" },
@@ -79,7 +83,10 @@ export default {
   computed: {
     title(){
       return this.name + ' ' + this.surname;
-    }
+    },
+    fieryPokemons() {
+      return this.pokemons.filter(this.isFiery);
+    },
   },
   methods: {
     resetForm() {
@@ -90,6 +97,9 @@ export default {
     },
     formSubmit() {
       alert(`Searched: ${this.searchQuery}`);
+    },
+     isFiery(value) {
+      return value.includes("char");
     },
   },
 };
