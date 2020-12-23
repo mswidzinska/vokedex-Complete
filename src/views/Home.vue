@@ -50,6 +50,7 @@
       </button>
       <button type="submit" @click.prevent="resetForm">reset</button>
     </form>
+     <h2>{{ title }}</h2>
   </div>
 </template>
 
@@ -62,6 +63,7 @@ export default {
       searchQuery: "",
       name: "Lili",
       red: true,
+      surname: "Pipi",
       green: false,
       yellow: false,
       items: ["item1", "item2", "item3", "item4", "item5", "item6"],
@@ -73,6 +75,11 @@ export default {
         { name: "Luca", type: "swiss shephard", color: "gray" },
       ],
     };
+  },
+  computed: {
+    title(){
+      return this.name + ' ' + this.surname;
+    }
   },
   methods: {
     resetForm() {
