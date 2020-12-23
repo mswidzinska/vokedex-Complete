@@ -40,7 +40,7 @@
 
         </li>
       </ul>
-      <button @click="isDark =!isDark"> ENTER DARKNESS</button>
+      <button @click="isDark =!isDark">ENTER DARKNESS</button>
     </div>
     <form @submit="formSubmit">
       <input v-model="searchQuery" />
